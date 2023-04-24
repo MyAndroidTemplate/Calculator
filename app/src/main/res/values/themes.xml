@@ -12,5 +12,17 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- My button style !-->
+        <item name="android:buttonStyle">@style/MainButtonView</item>
+    </style>
+
+    <!-- Переопределенное отображение кнопки!-->
+    <style name="MainButtonView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">5px</item>
+        <item name="android:padding">16dp</item>
     </style>
 </resources>
