@@ -1,5 +1,5 @@
 package com.example.model;
-import com.example.Interface.IBinaryOperations;
+import com.example.operations.IBinaryOperations;
 
 public class DoubleBinaryOperations implements IBinaryOperations<Double> {
     public double x=0.00;

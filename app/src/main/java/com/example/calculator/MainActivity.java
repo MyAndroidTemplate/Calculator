@@ -11,9 +11,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        View view = findViewById(android.R.id.content);
-        events= new ButtonEvents(view);
+          setContentView(R.layout.activity_main);
+          View view = findViewById(android.R.id.content);
+          events= new ButtonEvents(view);
     }
     public void onClick(View views) {
 

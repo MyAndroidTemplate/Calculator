@@ -1,4 +1,4 @@
-package com.example.Interface;
+package com.example.operations;
 
 public interface IBinaryOperations<T> {
     public T sum(T x, T y);
