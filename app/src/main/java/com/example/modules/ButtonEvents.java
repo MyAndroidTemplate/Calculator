@@ -8,6 +8,8 @@ import com.example.calculator.R;
 import com.example.model.DoubleBinaryOperations;
 import com.example.model.IntegerBinaryOperations;
 
+import java.util.Arrays;
+
 public class ButtonEvents {
     private DoubleBinaryOperations doubleDigit = new DoubleBinaryOperations();
     private IntegerBinaryOperations intDigit = new IntegerBinaryOperations();
@@ -25,17 +27,14 @@ public class ButtonEvents {
     }
 
     public void setOnClickListeners() {
-        for (int id : buttonObject) {
+        Arrays.stream(buttonObject).forEach(id -> {
             Button button = view.findViewById(id);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(@Nullable View view) {
-                    if (view != null) {
-                        handleButtonClick(view.getId());
-                    }
+            button.setOnClickListener(view -> {
+                if (view != null) {
+                    handleButtonClick(view.getId());
                 }
             });
-        }
+        });
     }
 
     private void setDisplayValue(int value)
