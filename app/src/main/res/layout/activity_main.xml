@@ -29,136 +29,154 @@
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="C"
+        android:text="@string/reset"
+        android:onClick="onClick"
         style="@style/MathCalculationButton"/>
     <Button
         android:id="@+id/plus_minus"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="+/-"
+        android:text="@string/plus_minus"
+        android:onClick="onClick"
         style="@style/MathCalculationButton"/>
    <Button
         android:id="@+id/percent"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="%"
+        android:text="@string/percent"
+        android:onClick="onClick"
         style="@style/MathCalculationButton"/>
    <Button
+        android:id="@+id/division"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="5"
+        android:layout_margin="1px"
+        android:text="@string/division"
+        android:onClick="onClick"
+        style="@style/MathCalculationButton"/>
+
+    <Button
         android:id="@+id/button_7"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="/"
-        style="@style/MathCalculationButton"/>
+        android:onClick="onClick"
+        android:text="7" />
 
     <Button
         android:id="@+id/button_8"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="7" />
+        android:onClick="onClick"
+        android:text="8" />
 
     <Button
         android:id="@+id/button_9"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="8" />
-
-    <Button
-        android:id="@+id/button_divide"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="5"
-        android:layout_margin="1px"
+        android:onClick="onClick"
         android:text="9" />
-
-    <Button
-        android:id="@+id/button_4"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="5"
-        android:layout_margin="1px"
-        android:text="Х"
-        style="@style/MathCalculationButton"/>
-
-    <Button
-        android:id="@+id/button_5"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="5"
-        android:layout_margin="1px"
-        android:text="4" />
-
-    <Button
-        android:id="@+id/button_6"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="5"
-        android:layout_margin="1px"
-        android:text="5" />
 
     <Button
         android:id="@+id/multiply"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
+        android:text="@string/multiply"
+        android:onClick="onClick"
+        style="@style/MathCalculationButton"/>
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="5"
+        android:layout_margin="1px"
+        android:onClick="onClick"
+        android:text="4" />
+
+    <Button
+        android:id="@+id/button_5"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="5"
+        android:layout_margin="1px"
+        android:onClick="onClick"
+        android:text="5" />
+
+    <Button
+        android:id="@+id/button_6"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="5"
+        android:layout_margin="1px"
+        android:onClick="onClick"
         android:text="6" />
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="6"
+        android:layout_margin="1px"
+        android:text="@string/minus"
+        android:onClick="onClick"
+        style="@style/MathCalculationButton"/>
 
     <Button
         android:id="@+id/button_1"
         android:layout_columnWeight="1"
-        android:layout_rowWeight="6"
+        android:layout_rowWeight="5"
         android:layout_margin="1px"
-        android:text="-"
-        style="@style/MathCalculationButton"/>
+        android:onClick="onClick"
+        android:text="1" />
 
     <Button
         android:id="@+id/button_2"
         android:layout_columnWeight="1"
         android:layout_rowWeight="5"
         android:layout_margin="1px"
+        android:onClick="onClick"
         android:text="2" />
 
     <Button
-        android:id="@+id/button_3"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="5"
-        android:layout_margin="1px"
-        android:text="3" />
-
-    <Button
-         android:id="@+id/button_minus"
+         android:id="@+id/button_3"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
-         android:text="-" />
+         android:onClick="onClick"
+         android:text="3" />
 
     <Button
          android:id="@+id/button_plus"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
-         android:text="+"
+         android:text="@string/plus"
+         android:onClick="onClick"
          style="@style/MathCalculationButton"/>
     <Button
-         android:id="@+id/buttonZero"
+         android:id="@+id/Zero"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_columnSpan="2"
          android:layout_margin="1px"
-         android:text="0" />
+         android:onClick="onClick"
+         android:text="@string/display" />
    <Button
          android:id="@+id/floatDigit"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
-         android:text="." />
+         android:onClick="onClick"
+         android:text="@string/floatDigit" />
     <Button
          android:id="@+id/button_Eq"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
-         android:text="="
+         android:onClick="onClick"
+         android:text="@string/equal"
          style="@style/MathCalculationButton"/>
-
     </GridLayout>
 </LinearLayout>
