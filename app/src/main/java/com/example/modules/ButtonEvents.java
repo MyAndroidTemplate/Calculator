@@ -1,12 +1,9 @@
 package com.example.modules;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
-
 import com.example.calculator.R;
 import com.example.model.DoubleBinaryOperations;
 import com.example.model.IntegerBinaryOperations;
@@ -25,7 +22,6 @@ public class ButtonEvents {
     public ButtonEvents() {}
     public ButtonEvents(View view) {
         this.view = view;
-        setOnClickListeners();
     }
 
     public void setOnClickListeners() {
@@ -82,6 +78,7 @@ public class ButtonEvents {
             case R.id.button_plus:
                 break;
             case R.id.Reset:
+                setDisplayValue(0);
                 break;
             case R.id.plus_minus:
                 break;
