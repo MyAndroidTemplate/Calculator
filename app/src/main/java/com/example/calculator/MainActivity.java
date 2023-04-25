@@ -3,11 +3,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-import com.example.model.ButtonEvents;
-import com.example.model.DoubleBinaryOperations;
-import com.example.model.IntegerBinaryOperations;
+import com.example.modules.ButtonEvents;
+
 public class MainActivity extends AppCompatActivity {
     private ButtonEvents events = null;
     @Override
