@@ -6,8 +6,8 @@ import android.widget.TextView;
 import com.example.calculator.R;
 
 public class DisplayShow{
-    View view = null;
-    TextView display = null;
+    View view;
+    TextView display;
     public DisplayShow(View view) {
         this.view = view;
         this.display = view.findViewById(R.id.display);
