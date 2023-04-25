@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class ButtonEvents {
     private DoubleBinaryOperations doubleDigit = new DoubleBinaryOperations();
     private IntegerBinaryOperations intDigit = new IntegerBinaryOperations();
-    private TextView display;
+    private DisplayShow display;
     private View view;
     private int[] buttonObject = {
             R.id.button_1, R.id.button_2, R.id.button_3,
@@ -27,7 +27,7 @@ public class ButtonEvents {
     public ButtonEvents() {}
     public ButtonEvents(View view) {
         this.view = view;
-        this.display=this.view.findViewById(R.id.display);
+        this.display=new DisplayShow(this.view.findViewById(R.id.display));
     }
 
     public void setOnClickListeners() {
@@ -41,51 +41,43 @@ public class ButtonEvents {
         });
     }
 
-    /*
-    private void setDisplayValue(int value)
-    {
-        TextView display = view.findViewById(R.id.display);
-        display.setText(String.valueOf(value));
-    }
-
-     */
    private void handleButtonClick(int btn) {
         switch (btn) {
             case R.id.button_1:
                 //setDisplayValue(1);
-                this.display.setText("1");
+                this.display.setDisplayValue("1");
                 break;
             case R.id.button_2:
-                this.display.setText("2");
+                this.display.setDisplayValue("2");
                 break;
             case R.id.button_3:
-                this.display.setText("3");
+                this.display.setDisplayValue("3");
                 break;
             case R.id.button_4:
-                this.display.setText("4");
+                this.display.setDisplayValue("4");
                 break;
             case R.id.button_5:
-                this.display.setText("5");
+                this.display.setDisplayValue("5");
                 break;
             case R.id.button_6:
-                this.display.setText("6");
+                this.display.setDisplayValue("6");
                 break;
             case R.id.button_7:
-                this.display.setText("7");
+                this.display.setDisplayValue("7");
                 break;
             case R.id.button_8:
-                this.display.setText("8");
+                this.display.setDisplayValue("8");
                 break;
             case R.id.button_9:
-                this.display.setText("9");
+                this.display.setDisplayValue("9");
                 break;
             case R.id.Zero:
-                this.display.setText("0");
+                this.display.setDisplayValue("0");
                 break;
             case R.id.button_plus:
                 break;
             case R.id.Reset:
-                this.display.setText("0");
+                this.display.setDisplayValue("0");
                 break;
             case R.id.plus_minus:
                 break;
