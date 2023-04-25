@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         events= new ButtonEvents(view);
     }
     public void onClick(View views) {
+
         events.setOnClickListeners();
     }
 }
