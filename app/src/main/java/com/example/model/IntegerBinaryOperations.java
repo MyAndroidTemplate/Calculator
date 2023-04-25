@@ -1,6 +1,6 @@
 package com.example.model;
 
-import com.example.Interface.IBinaryOperations;
+import com.example.operations.IBinaryOperations;
 
 public class IntegerBinaryOperations implements IBinaryOperations<Integer>
 {
