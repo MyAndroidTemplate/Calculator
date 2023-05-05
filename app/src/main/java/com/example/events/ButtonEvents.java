@@ -1,18 +1,13 @@
 package com.example.events;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import com.example.calculator.R;
 import com.example.model.DoubleBinaryOperations;
 import com.example.model.IntegerBinaryOperations;
-import com.example.modules.DisplayShow;
-
-import org.w3c.dom.Text;
+import com.example.component.DisplayShow;
 
 import java.util.Arrays;
 
