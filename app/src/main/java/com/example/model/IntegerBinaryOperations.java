@@ -32,7 +32,7 @@ public class IntegerBinaryOperations implements IBinaryOperations<Integer>
     public Integer division(Integer x, Integer y) {
         this.x=x;
         this.y=y;
-        return (this.x/this.y);
+        return (this.x / this.y);
     }
 
     @Override
