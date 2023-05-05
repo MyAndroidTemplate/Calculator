@@ -1,4 +1,4 @@
-package com.example.modules;
+package com.example.component;
 
 import android.view.View;
 import android.widget.EditText;
