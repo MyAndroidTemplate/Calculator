@@ -19,11 +19,11 @@ public class ButtonEvents {
     private DisplayShow display;
     private View view;
     private int[] buttonObject = {
-            R.id.button_1,  R.id.button_2,    R.id.button_3,
-            R.id.button_4,  R.id.button_5,    R.id.button_6,
-            R.id.button_7,  R.id.button_8,    R.id.button_9,
-            R.id.Reset,     R.id.plus_minus,  R.id.percent,
-            R.id.button_Eq, R.id.floatDigit,  R.id.Zero
+            R.id.button_1,  R.id.button_2,   R.id.button_3,
+            R.id.button_4,  R.id.button_5,   R.id.button_6,
+            R.id.button_7,  R.id.button_8,   R.id.button_9,
+            R.id.Reset,     R.id.plus_minus, R.id.percent,
+            R.id.button_Eq, R.id.floatDigit, R.id.Zero
     };
     public ButtonEvents() {}
     public ButtonEvents(View view) {
@@ -31,6 +31,10 @@ public class ButtonEvents {
         this.display=new DisplayShow(this.view);
     }
 
+    /**
+     * The current method sets up listeners for all buttons in use
+     * Текущий метод настраивает слушатели для всех используемых кнопок.
+     */
     public void setOnClickListeners() {
         try{
             Arrays.stream(buttonObject).forEach(id -> {
@@ -58,14 +62,41 @@ public class ButtonEvents {
                  .show();
         }
     }
+
+    /**
+     * Current method is denied duplicate math operator symbol
+     * Текущий метод запрещает использование повторяющихся символов математических операторов
+     * @param operation
+     */
+    private void DeniedRepeatMathOperation(String operation)
+    {
+        try{
+            if(display.getText().equals(operation) || display.getText().contains(operation))
+            {
+                return;
+            }else{
+                setTextValue(operation);
+            }
+        }catch(NullPointerException ex)
+        {
+             Log.e("Error", "The method DeniedRepeatMathOperation received a null object.Abort");
+        }
+
+    }
+    /**
+     * When the button is pressed, the method assigns a value to EditText
+     * Текущий метод устанавливает значение для EditText при нажатии на кнопку
+     */
     private void setTextValue(String value)
     {
         this.display.setDisplayOperationValue(value);
     }
+
+    /**
+     * The current method processes keyboard input
+     * @param btn
+     */
    private void handleButtonClick(int btn) {
-        boolean isZero=false;
-        String current = display.getText();
-        if(current.equals("0")) {display.Clear();}
         switch (btn) {
             case R.id.button_1:
                  setTextValue("1");
@@ -99,22 +130,24 @@ public class ButtonEvents {
                 break;
             case R.id.Reset:
                 display.Clear();
-                setTextValue("0");
                 break;
             case R.id.button_plus:
                 operation="+";
+                DeniedRepeatMathOperation("+");
                 break;
             case R.id.plus_minus:
                 operation="-";
+                DeniedRepeatMathOperation("-");
                 break;
             case R.id.percent:
+                DeniedRepeatMathOperation("%");
                 break;
             case R.id.floatDigit:
                 operation=".";
-                isZero = true;
-                setTextValue(".");
+                DeniedRepeatMathOperation(".");
                 break;
             case R.id.button_Eq:
+                DeniedRepeatMathOperation("=");
                 break;
             default:
                 break;
