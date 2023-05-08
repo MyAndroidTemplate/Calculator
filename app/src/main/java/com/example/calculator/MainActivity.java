@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.example.events.ButtonEvents;
 
@@ -15,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
           View view = findViewById(android.R.id.content);
           events = new ButtonEvents(view);
     }
-    public void onClick(View views) {
-
+    public void onClick(View views)
+    {
         events.setOnClickListeners();
     }
 }

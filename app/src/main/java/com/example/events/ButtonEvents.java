@@ -3,22 +3,19 @@ package com.example.events;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import com.example.calculator.R;
 import com.example.model.DoubleBinaryOperations;
 import com.example.model.IntegerBinaryOperations;
-import com.example.modules.DisplayShow;
-
-import org.w3c.dom.Text;
+import com.example.component.DisplayShow;
 
 import java.util.Arrays;
 
 public class ButtonEvents {
     private DoubleBinaryOperations  doubleDigit = new DoubleBinaryOperations();
     private IntegerBinaryOperations intDigit = new IntegerBinaryOperations();
+    private String operation;
     private DisplayShow display;
     private View view;
     private int[] buttonObject = {
@@ -60,16 +57,18 @@ public class ButtonEvents {
             Toast.makeText(view.getContext(), ex.getMessage(), Toast.LENGTH_SHORT)
                  .show();
         }
-
     }
     private void setTextValue(String value)
     {
         this.display.setDisplayOperationValue(value);
     }
    private void handleButtonClick(int btn) {
+        boolean isZero=false;
+        String current = display.getText();
+        if(current.equals("0")) {display.Clear();}
         switch (btn) {
             case R.id.button_1:
-                setTextValue("1");
+                 setTextValue("1");
                 break;
             case R.id.button_2:
                 setTextValue("2");
@@ -96,18 +95,24 @@ public class ButtonEvents {
                 setTextValue("9");
                 break;
             case R.id.Zero:
+                setTextValue("0");
                 break;
             case R.id.Reset:
                 display.Clear();
                 setTextValue("0");
                 break;
             case R.id.button_plus:
+                operation="+";
                 break;
             case R.id.plus_minus:
+                operation="-";
                 break;
             case R.id.percent:
                 break;
             case R.id.floatDigit:
+                operation=".";
+                isZero = true;
+                setTextValue(".");
                 break;
             case R.id.button_Eq:
                 break;

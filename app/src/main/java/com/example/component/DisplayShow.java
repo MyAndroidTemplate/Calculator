@@ -1,4 +1,4 @@
-package com.example.modules;
+package com.example.component;
 
 import android.view.View;
 import android.widget.EditText;
@@ -16,7 +16,7 @@ public class DisplayShow{
         this.view = view;
         this.display = view.findViewById(R.id.display);
         this.operation = view.findViewById(R.id.operations);
-             event = new MyTextWatcher(this.operation);
+        this.event = new MyTextWatcher(this.operation);
         this.operation.addTextChangedListener(event);
     }
 
@@ -47,5 +47,14 @@ public class DisplayShow{
     public void Clear()
     {
         operation.setText("");
+    }
+
+    /**
+     * An return current display value
+     * @return
+     */
+    public String getText() {
+           String value = operation.getText().toString();
+       return value;
     }
 }
