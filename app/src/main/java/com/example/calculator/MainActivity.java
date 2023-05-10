@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_main);
           View view = findViewById(android.R.id.content);
-          events = new ButtonEvents(view);
+             events = new ButtonEvents(view);
     }
     public void onClick(View views)
     {
