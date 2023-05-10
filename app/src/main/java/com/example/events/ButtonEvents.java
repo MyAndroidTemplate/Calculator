@@ -1,20 +1,15 @@
 package com.example.events;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.calculator.R;
-import com.example.model.DoubleBinaryOperations;
-import com.example.model.IntegerBinaryOperations;
+import com.example.model.BinaryOperations;
 import com.example.component.DisplayShow;
-
 import java.util.Arrays;
 
 public class ButtonEvents {
-    private DoubleBinaryOperations  doubleDigit = new DoubleBinaryOperations();
-    private IntegerBinaryOperations intDigit = new IntegerBinaryOperations();
+    private BinaryOperations<Integer> intDigit = new BinaryOperations();
     private String operation;
     private DisplayShow display;
     private View view;
@@ -37,10 +32,13 @@ public class ButtonEvents {
      */
     public void setOnClickListeners() {
         try{
-            Arrays.stream(buttonObject).forEach(id -> {
+            Arrays.stream(buttonObject).forEach(id ->
+            {
                 Button button = view.findViewById(id);
-                button.setOnClickListener(view -> {
-                    if (view != null) {
+                button.setOnClickListener(view ->
+                {
+                    if (view != null)
+                    {
                         handleButtonClick(view.getId());
                     }
                 });
