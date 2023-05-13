@@ -3,14 +3,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.Enum.NumericType;
 import com.example.calculator.R;
 import com.example.model.BinaryOperations;
 import com.example.component.DisplayShow;
 import java.util.Arrays;
 
-public class ButtonEvents {
-    private BinaryOperations<Integer> intDigit = new BinaryOperations();
-    private String operation;
+public class ButtonEvents <T extends Number> {
+    private BinaryOperations<T> digit = null;
     private DisplayShow display;
     private View view;
     private int[] buttonObject = {
@@ -130,18 +131,18 @@ public class ButtonEvents {
                 display.Clear();
                 break;
             case R.id.button_plus:
-                operation="+";
+
                 DeniedRepeatMathOperation("+");
                 break;
             case R.id.plus_minus:
-                operation="-";
+
                 DeniedRepeatMathOperation("-");
                 break;
             case R.id.percent:
                 DeniedRepeatMathOperation("%");
                 break;
             case R.id.floatDigit:
-                operation=".";
+                digit = (BinaryOperations<T>) new BinaryOperations<Double>();
                 DeniedRepeatMathOperation(".");
                 break;
             case R.id.button_Eq:

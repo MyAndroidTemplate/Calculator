@@ -1,71 +1,61 @@
 package com.example.model;
+import android.util.Log;
+
 import com.example.Enum.MathOperation;
 import com.example.Enum.NumericType;
 import com.example.operations.IBinaryOperations;
 import com.example.operations.Lambda;
 
-public class BinaryOperations<T extends Number> implements IBinaryOperations<Long>
+import java.math.BigDecimal;
+import java.util.function.BinaryOperator;
+
+public class BinaryOperations<T extends Number> implements IBinaryOperations<T>
 {
-    public  Number x;
-    public  Number y;
+    public  T x;
+    public  T y;
     private MathOperation operation;
-    private NumericType type;
-    public BinaryOperations() {}
-    @Override
-    public Long plus(Long x, Long y)
+    //private NumericType type;
+    public BinaryOperations() { Log.i("Information", " Math model was created sucessfull");}
+    public BinaryOperations(T x , T y)
     {
+       this.x = x;
+       this.y = y;
+    }
+    @Override
+    public T plus() {
+        return performOperation(x, y, (a, b) -> a + b);
+    }
+
+    @Override
+    public T minus() {
+        return performOperation(x, y, (a, b) -> a - b);
+    }
+
+    @Override
+    public T plus_minus() {
         return null;
     }
 
     @Override
-    public Long minus(Long x, Long y)
-    {
-        return null;
+    public T percent() {
+        return performOperation(x, y, (a, b) -> a / b);
     }
 
-    @Override
-    public Long plus_minus(Long x, Long y)
-    {
-        return null;
-    }
-
-    @Override
-    public Long percent(Long x, Long y, MathOperation operation, NumericType type)
-    {
-        return null;
-    }
-
-    /**
-     * A method for type verification
-     * Верификация входного типа
-     * @param x
-     * @param y
-     * @param type
-     */
-    public <T extends Number> void CheckType(T x , T y, NumericType type)
-    {
-        if(type == NumericType.LONG)
-        {
-            this.x = x.longValue();
-            this.y = y.longValue();
-        }else if (type == NumericType.DOUBLE) {
-            this.x = x.doubleValue();
-            this.y = y.doubleValue();
-        }else{
-            throw new ArithmeticException("Incorrect type");
+    private T performOperation(Number x, Number y, BinaryOperator<T> operator) {
+        if (x instanceof Long) {
+            return operator.apply((T) x, (T) y);
+        } else if (x instanceof Double) {
+            return operator.apply((T) x, (T) y);
+        } else {
+            throw new UnsupportedOperationException("Unsupported numeric type");
         }
     }
 
-    /**
-     * A method for calculations
-     * @param x
-     * @param y
-     * @param operation
-     * @return
-     */
+
     public T operate(T x, T y, MathOperation operation) {
         switch (operation) {
             case PLUS:
+
                 break;
             case MINUS:
 

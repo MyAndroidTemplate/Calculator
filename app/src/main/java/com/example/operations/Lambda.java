@@ -1,5 +1,7 @@
 package com.example.operations;
 
-public interface BinaryOperator<T> {
-    T apply(T t, T u);
+import java.math.BigDecimal;
+
+public interface Lambda<T> {
+    T apply(T x, T y);
 }

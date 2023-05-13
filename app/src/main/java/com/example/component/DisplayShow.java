@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.example.calculator.R;
 import com.example.events.MyTextWatcher;
-
 public class DisplayShow{
   private View view;
   private EditText operation;
