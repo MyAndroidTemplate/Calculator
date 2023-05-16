@@ -14,11 +14,13 @@ public class ButtonEvents <T extends Number> {
     private DisplayShow display;
     private View view;
     private int[] buttonObject = {
+            R.id.Zero,
             R.id.button_1,  R.id.button_2,   R.id.button_3,
             R.id.button_4,  R.id.button_5,   R.id.button_6,
             R.id.button_7,  R.id.button_8,   R.id.button_9,
             R.id.Reset,     R.id.plus_minus, R.id.percent,
-            R.id.button_Eq, R.id.floatDigit, R.id.Zero
+            R.id.plus,      R.id.minus,      R.id.division,
+            R.id.Eq,        R.id.floatDigit
     };
     public ButtonEvents() {}
     public ButtonEvents(View view) {
@@ -69,7 +71,7 @@ public class ButtonEvents <T extends Number> {
     private void DeniedRepeatMathOperation(String operation)
     {
         try{
-            if(display.getText().equals(operation) || display.getText().contains(operation))
+            if(display.getText().contains(operation))
             {
                 return;
             }else{
@@ -131,22 +133,26 @@ public class ButtonEvents <T extends Number> {
             case R.id.Reset:
                 display.Clear();
                 break;
-            case R.id.button_plus:
-
+            case R.id.plus:
+                setTextValue("+");
                 DeniedRepeatMathOperation("+");
                 break;
+            case R.id.minus:
+                setTextValue("-");
+                break;
             case R.id.plus_minus:
-
-                DeniedRepeatMathOperation("-");
+                setTextValue("+/-");
                 break;
             case R.id.percent:
+                setTextValue("%");
                 DeniedRepeatMathOperation("%");
                 break;
             case R.id.floatDigit:
                 digit = (BinaryOperations<T>) new BinaryOperations<Double>();
                 DeniedRepeatMathOperation(".");
                 break;
-            case R.id.button_Eq:
+            case R.id.Eq:
+
                 DeniedRepeatMathOperation("=");
                 break;
             default:
