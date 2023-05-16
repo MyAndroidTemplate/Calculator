@@ -11,8 +11,8 @@ import com.example.model.BinaryOperations;
 import com.example.modules.CheckType;
 
 public class MyTextWatcher <T extends Number> implements TextWatcher {
-   private T x = null;
-   private T y = null;
+   private T x ;
+   private T y ;
    private T digit;
    private String text = "";
    BinaryOperations<T> binary = null;
@@ -74,19 +74,30 @@ public class MyTextWatcher <T extends Number> implements TextWatcher {
             if (text.contains("."))
             {
                this.x = (T) Double.valueOf(text);
-                 Log.i("Type information:", "Double type was detected: " + digit);
+
+                 Log.i("Type information:", "Double type was detected: X:" + this.x + " " + "Y:" + this.y );
             } else {
-                this.x = (T) Long.valueOf(text);
-                 Log.i("Type information:", "Long type was detected: " + digit);
+              this.x = (T) Long.valueOf(text);
+                 Log.i("Type information:", "Long type was detected: " + this.x + " " + "Y:" + this.y );
             }
         }catch (NumberFormatException ex){
             if(text.equals(""))
             {
-                Log.i("Clear","Clearing old value") ;
-            }else {
+               Log.i("Clear","Clearing old value") ;
+            }else if(text.contains("+")){
+                this.extractValue("+");
+
+            }else if (text.contains("-")){
+
+            }else if(text.contains("X")){
+
+            }else if(text.contains("/")){
+
+            }else if(text.contains("%")){
+
+            }else{
                 Toast.makeText(display.getContext(), "Incorrect digit value", Toast.LENGTH_SHORT).show();
             }
-
         }catch (NullPointerException ex){
                 Toast.makeText(display.getContext(), "Cannot convert null type", Toast.LENGTH_SHORT).show();
         }
@@ -101,23 +112,6 @@ public class MyTextWatcher <T extends Number> implements TextWatcher {
     @Override
     public void afterTextChanged(Editable editable)
     {
-        try{
-            text=display.getText().toString();
-            if(text.contains("-"))
-            {
 
-            }else if(text.contains("+"))  {
-
-            }else if(text.contains("X")){
-
-            }else if(text.contains("/"))
-            {
-
-            }else{
-                Toast.makeText(display.getContext(), "Unknown operations", Toast.LENGTH_SHORT).show();
-            }
-        }catch (NullPointerException ex){
-            Toast.makeText(display.getContext(), "Cannot convert null type", Toast.LENGTH_SHORT).show();
-        }
     }
 }
