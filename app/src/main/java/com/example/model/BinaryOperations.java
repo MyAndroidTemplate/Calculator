@@ -11,8 +11,6 @@ public class BinaryOperations<T extends Number> implements IBinaryOperations<T>
     public T x;
     public T y;
     public T result;
-    private IBinaryOperations<T> operations;
-    //private NumericType type;
     public BinaryOperations() { Log.i("Information", " Math model was created sucessfull");}
     public BinaryOperations(T x , T y)
     {
@@ -94,7 +92,7 @@ public class BinaryOperations<T extends Number> implements IBinaryOperations<T>
         });
     }
 
-    public T performOperation(BinaryOperator<T> operator) {
+    private T performOperation(BinaryOperator<T> operator) {
         return operator.apply(x, y);
     }
 }

@@ -160,7 +160,7 @@
          android:text="3" />
 
     <Button
-         android:id="@+id/button_plus"
+         android:id="@+id/plus"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
@@ -183,7 +183,7 @@
          android:onClick="onClick"
          android:text="@string/floatDigit" />
     <Button
-         android:id="@+id/button_Eq"
+         android:id="@+id/Eq"
          android:layout_columnWeight="1"
          android:layout_rowWeight="5"
          android:layout_margin="1px"
