@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.Enum.NumericType;
 import com.example.calculator.R;
 import com.example.model.BinaryOperations;
 import com.example.component.DisplayShow;
@@ -98,7 +97,9 @@ public class ButtonEvents <T extends Number> {
    private void handleButtonClick(int btn) {
         switch (btn) {
             case R.id.button_1:
-                 setTextValue("1");
+                // setTextValue("1");
+                digit = (BinaryOperations<T>) new BinaryOperations<Double>(5.5, 5.2);
+                setTextValue(String.valueOf(digit.plus()));
                 break;
             case R.id.button_2:
                 setTextValue("2");

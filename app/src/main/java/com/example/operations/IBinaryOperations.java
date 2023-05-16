@@ -1,8 +1,5 @@
 package com.example.operations;
 
-import com.example.Enum.MathOperation;
-import com.example.Enum.NumericType;
-
 public interface IBinaryOperations<T extends Number> {
     public T plus ();
     public T minus();
