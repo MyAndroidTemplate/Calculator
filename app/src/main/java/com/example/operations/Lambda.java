@@ -1,6 +1,7 @@
 package com.example.operations;
 
+import java.math.BigDecimal;
+
 public interface Lambda<T> {
-    public Lambda<Double> calculate(Double x , Double y);
-    public Lambda<Integer> calculate(Integer x , Integer y);
+    T apply(T x, T y);
 }

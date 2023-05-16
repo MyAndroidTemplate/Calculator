@@ -1,86 +1,100 @@
 package com.example.model;
-import com.example.Enum.MathOperation;
-import com.example.Enum.NumericType;
+import android.util.Log;
+
+import com.example.modules.CheckType;
 import com.example.operations.IBinaryOperations;
-import com.example.operations.Lambda;
 
-public class BinaryOperations<T extends Number> implements IBinaryOperations<Long>
+import java.util.function.BinaryOperator;
+
+public class BinaryOperations<T extends Number> implements IBinaryOperations<T>
 {
-    public  Number x;
-    public  Number y;
-    private MathOperation operation;
-    private NumericType type;
-    public BinaryOperations() {}
-    @Override
-    public Long plus(Long x, Long y)
+    public T x;
+    public T y;
+    public T result;
+    private IBinaryOperations<T> operations;
+    //private NumericType type;
+    public BinaryOperations() { Log.i("Information", " Math model was created sucessfull");}
+    public BinaryOperations(T x , T y)
     {
-        return null;
+        this.x=x;
+        this.y=y;
     }
 
     @Override
-    public Long minus(Long x, Long y)
-    {
-        return null;
+    public T plus() {
+        return performOperation((a, b) -> {
+            if (CheckType.isDouble(a) || CheckType.isDouble(b)) {
+                return (T) (Double) ((Double) a + (Double) b);
+            } else if (CheckType.isLong(a) || CheckType.isLong(b)) {
+                return (T) (Long) ((Long) a + (Long) b);
+            } else if (CheckType.isInteger(a) || CheckType.isInteger(b)) {
+                return (T) (Integer) ((Integer) a + (Integer) b);
+            } else {
+                throw new IllegalArgumentException("Unsupported type");
+            }
+        });
     }
 
     @Override
-    public Long plus_minus(Long x, Long y)
-    {
-        return null;
+    public T minus() {
+        return performOperation((a, b) -> {
+            if (CheckType.isDouble(a) || CheckType.isDouble(b)) {
+                return (T) (Double) ((Double) a - (Double) b);
+            } else if (CheckType.isLong(a) || CheckType.isLong(b)) {
+                return (T) (Long) ((Long) a - (Long) b);
+            } else if (CheckType.isInteger(a) || CheckType.isInteger(b)) {
+                return (T) (Integer) ((Integer) a - (Integer) b);
+            } else {
+                throw new IllegalArgumentException("Unsupported type");
+            }
+        });
     }
 
     @Override
-    public Long percent(Long x, Long y, MathOperation operation, NumericType type)
-    {
-        return null;
+    public T plus_minus() {
+        return performOperation((a, b) -> {
+            if (CheckType.isDouble(a) || CheckType.isDouble(b)) {
+                return (T) (Double) ((Double) (a) - (Double) b);
+            } else if (CheckType.isLong(a) || CheckType.isLong(b)) {
+                return (T) (Long) ((Long) a - (Long) b);
+            } else if (CheckType.isInteger(a) || CheckType.isInteger(b)) {
+                return (T) (Integer) ((Integer) a - (Integer) b);
+            } else {
+                throw new IllegalArgumentException("Unsupported type");
+            }
+        });
     }
 
-    /**
-     * A method for type verification
-     * Верификация входного типа
-     * @param x
-     * @param y
-     * @param type
-     */
-    public <T extends Number> void CheckType(T x , T y, NumericType type)
-    {
-        if(type == NumericType.LONG)
-        {
-            this.x = x.longValue();
-            this.y = y.longValue();
-        }else if (type == NumericType.DOUBLE) {
-            this.x = x.doubleValue();
-            this.y = y.doubleValue();
-        }else{
-            throw new ArithmeticException("Incorrect type");
-        }
+    public T multiply() {
+        return performOperation((a, b) -> {
+            if (CheckType.isDouble(a) || CheckType.isDouble(b)) {
+                return (T) (Double) ((Double) (a) * (Double) b);
+            } else if (CheckType.isLong(a) || CheckType.isLong(b)) {
+                return (T) (Long) ((Long) a * (Long) b);
+            } else if (CheckType.isInteger(a) || CheckType.isInteger(b)) {
+                return (T) (Integer) ((Integer) a * (Integer) b);
+            } else {
+               throw new IllegalArgumentException("Unsupported type");
+            }
+        });
     }
 
-    /**
-     * A method for calculations
-     * @param x
-     * @param y
-     * @param operation
-     * @return
-     */
-    public T operate(T x, T y, MathOperation operation) {
-        switch (operation) {
-            case PLUS:
-                break;
-            case MINUS:
+    @Override
+    public T percent() {
+        return performOperation((a, b) -> {
+            if (CheckType.isDouble(a) || CheckType.isDouble(b)) {
+                return (T) (Double) ((Double) a * ((Double) b / 100.0));
+            } else if (CheckType.isLong(a) || CheckType.isLong(b)) {
+                return (T) (Long) ((Long) a * ((Long) b / 100L));
+            } else if (CheckType.isInteger(a) || CheckType.isInteger(b)) {
+                return (T) (Integer) ((Integer) a * ((Integer) b / 100));
+            } else {
+                throw new IllegalArgumentException("Unsupported type");
+            }
+        });
+    }
 
-                break;
-            case MULTIPLY:
-
-                break;
-            case DIVIDE:
-
-                break;
-            case PERCENT:
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported operation: " + operation);
-        }
-        return null;
+    public T performOperation(BinaryOperator<T> operator) {
+        return operator.apply(x, y);
     }
 }
